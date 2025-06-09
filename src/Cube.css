@@ -1,19 +1,36 @@
 .cube {
   width: 50px;
   height: 50px;
-  background-color: dodgerblue;
-  position: fixed; /* Use fixed positioning to allow it to move across the viewport */
-  left: 50%; /* Initial position */
+  position: fixed;
+  left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%); /* Center it initially */
+  transform: translate(-50%, -50%) rotateX(0deg) rotateY(0deg);
   animation: spin 4s linear infinite;
+  display: block;
+  perspective: 800px; /* Increase perspective for better 3D effect */
+  transform-style: preserve-3d; /* Ensure child elements are rendered in 3D */
 }
+
+.cube div {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border: 1px solid black; /* Optional border for visibility */
+}
+
+.cube .front { background-color: red; transform: translateZ(25px); }
+.cube .back { background-color: green; transform: rotateY(180deg) translateZ(25px); }
+.cube .left { background-color: blue; transform: rotateY(-90deg) translateZ(25px); }
+.cube .right { background-color: yellow; transform: rotateY(90deg) translateZ(25px); }
+.cube .top { background-color: cyan; transform: rotateX(90deg) translateZ(25px); }
+.cube .bottom { background-color: magenta; transform: rotateX(-90deg) translateZ(25px); }
 
 @keyframes spin {
   0% {
-    transform: translate(-50%, -50%) rotate(0deg);
+    transform: translate(-50%, -50%) rotateX(0deg) rotateY(0deg);
   }
   100% {
-    transform: translate(-50%, -50%) rotate(360deg);
+    transform: translate(-50%, -50%) rotateX(360deg) rotateY(360deg);
   }
 }

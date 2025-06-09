@@ -15,6 +15,12 @@ const Cube = ({ position }) => {
 
   return (
     <div className="cube" style={style}>
+      <div className="front"></div>
+      <div className="back"></div>
+      <div className="left"></div>
+      <div className="right"></div>
+      <div className="top"></div>
+      <div className="bottom"></div>
     </div>
   );
 };
